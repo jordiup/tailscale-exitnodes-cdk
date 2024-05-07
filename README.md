@@ -27,8 +27,9 @@ bun i
 # ts setup
 alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 touch .env
-# use your actual authkey here
+# use your actual authkey here: https://login.tailscale.com/admin/settings/keys
 echo "TAILSCALE_AUTH_KEY=tskey-xxxxxxxxxxxxxxxxxxxxxxxx" >> .env
+export $(cat .env | xargs)
 
 # assume credentials
 assume jordi --ex -r ap-south-1
