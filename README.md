@@ -16,3 +16,23 @@ Next, set the environment variable `TAILSCALE_AUTH_KEY` to your tailscale auth k
 
 > **Warning**
 > This stack deploys EC2 instances and has cost implications!
+
+# Instructions
+
+```bash
+# update bun
+bun upgrade
+# install deps
+bun i
+# ts setup
+alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
+touch .env
+# use your actual authkey here
+echo "TAILSCALE_AUTH_KEY=tskey-xxxxxxxxxxxxxxxxxxxxxxxx" >> .env
+
+# assume credentials
+assume jordi --ex -r ap-south-1
+# bootstrap and deploy
+bun cdk bootstrap
+bun cdk deploy
+```
